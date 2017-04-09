@@ -1,0 +1,21 @@
+
+
+.container {
+    padding: 20px;
+}
+.number {
+    height: 35px;
+    font-size: 16px;
+    text-align: right;
+    border-radius:5px;
+}
+.selectpicker {
+    height: 35px;
+    font-size: 16px;
+    border-radius: 5px;
+    
+}
+td{
+    padding-top: 20px;
+}
+

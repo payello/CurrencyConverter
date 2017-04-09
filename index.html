@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+        <title>Currency Converter</title>
+		<meta name="viewport" content="initial-scale=1.0">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+
+<!--Link to CSS code-->
+        <link rel="stylesheet" href="css/style.css">
+	</head>
+
+	<body onload="convert();">
+        <div class="container">
+            <h1>Forex Exchange</h1>
+            <table><tr><td>
+                <div index="input">
+<!--                Input box for numbers, onkeyup convert() function fromCurrency ID-->
+    <input type="number" class="number" id="fromCurrency" min="0" data-bind="value:replyNumber" value="1" onkeyup="convert();"/>
+                </div></td>
+                
+                <td>
+                    <select size="50" id="from" class="selectpicker" data-show-subtext="true" data-live-search="true" onchange="convert();">
+                
+  <ul class="dropdown-menu">
+      <option value="AUD">Australia</option>
+      <option value="BGN">Bulgaria</option>
+      <option value="BRL">Brazil</option>
+      <option value="CAD">Canada</option>
+      <option value="CHF">Switzerland</option>
+      <option value="CNY">China</option>
+      <option value="CZK">Czechia</option>
+      <option value="DKK">Denmark</option>
+      <option value="GBP" selected>United Kingdom</option>
+      <option value="EUR">EURO</option>
+      <option value="HKD">Hong Kong</option>
+      <option value="HUF">Hungary</option>
+      <option value="IDR">Indonesia</option>
+      <option value="ILS">Israel</option>
+      <option value="INR">India</option>
+      <option value="JPY">Japan</option>
+      <option value="KRW">South Korea</option>
+      <option value="MXN">Mexico</option>
+      <option value="MYR">Malaysia</option>
+      <option value="NOK">Norway</option>
+      <option value="NZD">New Zealand</option>
+      <option value="PHP">Philippines</option>
+      <option value="PLN">Poland</option>
+      <option value="ROL">Romania</option>
+      <option value="RUB">Russia</option>
+      <option value="SEK">Sweden</option>
+      <option value="SGD">Singapore</option>
+      <option value="THB">Thailand</option>
+      <option value="TRY">Turkey</option>
+      <option value="USD">USA</option>
+      <option value="ZAR">South Africa</option>
+  </ul>
+                        </select>
+                        </td>
+                </tr>
+        </table>
+       
+        <table>
+        <tr>
+            <td>
+               <div index="toCurrency">
+    <input type="number" class="number" id="toCurrency" min="0" data-bind="value:replyNumber" disabled />
+               </div>
+                </td>
+            <td>
+<select size="50" id="to" class="selectpicker" data-show-subtext="true" data-live-search="true" onchange="convert();">
+                
+  <ul class="dropdown-menu">
+      <option value="AUD">Australia</option>
+      <option value="BGN">Bulgaria</option>
+      <option value="BRL">Brazil</option>
+      <option value="CAD">Canada</option>
+      <option value="CHF">Switzerland</option>
+      <option value="CNY">China</option>
+      <option value="CZK">Czechia</option>
+      <option value="DKK">Denmark</option>
+      <option value="GBP">United Kingdom</option>
+      <option value="EUR">EURO</option>
+      <option value="HKD">Hong Kong</option>
+      <option value="HUF">Hungary</option>
+      <option value="IDR">Indonesia</option>
+      <option value="ILS">Israel</option>
+      <option value="INR">India</option>
+      <option value="JPY">Japan</option>
+      <option value="KRW">South Korea</option>
+      <option value="MXN">Mexico</option>
+      <option value="MYR">Malaysia</option>
+      <option value="NOK">Norway</option>
+      <option value="NZD">New Zealand</option>
+      <option value="PHP">Philippines</option>
+      <option value="PLN">Poland</option>
+      <option value="ROL">Romania</option>
+      <option value="RUB">Russia</option>
+      <option value="SEK">Sweden</option>
+      <option value="SGD">Singapore</option>
+      <option value="THB">Thailand</option>
+      <option value="TRY">Turkey</option>
+      <option value="USD" selected>USA</option>
+      <option value="ZAR">South Africa</option>
+  </ul>
+                        </select>
+                        
+              </td>
+                </tr>
+           </table>
+     </div>
+        
+        <div class="container" id ="forex-info">
+            <h2>List of currency rates to EU base rate</h2>
+        <p id="currencyList" class="currencyList"></p>
+        <p id="rateList" class="event"></p>
+        <p></p>
+        
+        </div>
+        
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+            <script src="js/code.js"></script>
+</body>
+</html>
