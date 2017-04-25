@@ -29,75 +29,67 @@
         }
 var tableContainer = document.getElementById("forex-info");
 
-var currencyKey =
-    {
-"Australia Dollar": "AUD",
-"Bulgaria Lev": "BGN",
-"Brazil Real": "BRL",
-"Canada Dollar": "CAD",
-"Switzerland Francs": "CHF",
-"China Yuan": "CNY",
-"Czechia Koruna": "CZK",
-"Denmark Krone": "DKK",
-"EURO": "EUR",
-"United Kingdom Pound": "GBP",
-"Hong Kong Dollar": "HKD",
-"Croatia Kuna": "HRK",
-"Hungary Forint": "HUF",
-"Indonesian Rupiah": "IDR",
-"Israel New Shekel": "ILS",
-"India Rupees": "INR",
-"Japan Yen": "JPY",
-"South Korea Won": "KRW",
-"Mexico Peso": "MXN",
-"Malaysia Ringgit": "MYR",
-"Norway Krone": "NOK",
-"New Zealand Dollar": "NZD",
-"Philippines Peso": "PHP",
-"Poland Zloty": "PLN",
-"Romania Leu": "RON",
-"Russia Rubles":"RUB",
-"Sweden Krona": "SEK",
-"Singapore Dollar": "SGD",
-"Thailand Baht": "THB",
-"Turkey Lira": "TRY",
-"US Dollars": "USD",
-"South Africa Rand": "ZAR"
-};
-var myCountry = "";
-Object.keys(currencyKey).forEach((e)=> {
-    var y = ('${e}: ${currencyKey[e]}');
-    myCountry += "<p>" + e + "</p>"
-})
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'js/forex.json', true);
+xhr.responseText = 'text';
+xhr.send();
 
+xhr.onload = function() {
+    if (xhr.status=== 200) {
+        var longCountries = JSON.parse(xhr.responseText);
+        console.log(longCountries);
+myCountry = "";
+    for (i = 0; i < longCountries.currency.length; i++) {
+
+        myCountry += "<p>"+longCountries.currency[i].long+"</p>";
+    }// end of for loop
+        document.getElementById('currencyList').innerHTML = myCountry;
+    }
+};
 
 var myData = 'https://api.fixer.io/latest'
-
+// new ajax request for list
 var xhttp = new XMLHttpRequest();
+//ajax function
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
             let res = JSON.parse(xhttp.responseText)
             var myString = "";
+        // forEach loop, looping through the object
             Object.keys(res.rates).forEach((e)=>{
-            
+            //selecting the data from api
                 var x = (`${e}: ${res.rates[e]}`);
                 //show the Country Codes
                 myString += "<p>"+ e +" - ";
                 //Shows the rate
-                myString += res.rates[e]+"</p>";
-            
-               
-            })
+                myString += res.rates[e]+ "</p>";
+                var lastUpload = res.date;
+                            document.getElementById("date").innerHTML = "Rates correct at  (" +lastUpload+")";
+
+                
+})
             document.getElementById("currencyList").innerHTML = myString;
+        
     }
 };
 
 xhttp.open("GET", myData, true);
 xhttp.send();
 
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'js/forex.json', true);
+xhr.responseText = 'text';
+xhr.send();
 
+xhr.onload = function() {
+    if (xhr.status=== 200) {
+        var longCountries = JSON.parse(xhr.responseText);
+        console.log(longCountries);
+myCountry = "";
+    for (i = 0; i < longCountries.currency.length; i++) {
 
-
-
-
-
+        myCountry += "<p>"+longCountries.currency[i].long+"</p>";
+    }// end of for loop
+        document.getElementById('long').innerHTML = myCountry;
+    }
+};
